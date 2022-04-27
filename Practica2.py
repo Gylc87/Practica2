@@ -47,7 +47,7 @@ while True:
         cv2.imshow("Conjuncion", conjuncion), cv2.moveWindow("Conjuncion", 400, 430)
         cv2.imshow("Disyuncion", disyuncion), cv2.moveWindow("Disyuncion", 400, 460)
         cv2.imshow("Negacion", negacion), cv2.moveWindow("Negacion", 400, 490)
-        cv2.imshow("Integral", integral), cv2.moveWindow("Integral", 400, 510)
+        ##cv2.imshow("Integral", integral), cv2.moveWindow("Integral", 400, 510)
         break
     
 cv2.waitKey(0)
