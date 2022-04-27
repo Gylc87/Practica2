@@ -13,6 +13,9 @@ img2 = cv2.resize(image2, dsize=(550, 350), interpolation=cv2.INTER_CUBIC)
 img3 = cv2.resize(image3, dsize=(550, 350), interpolation=cv2.INTER_CUBIC)
 img4 = cv2.resize(image4, dsize=(550, 350), interpolation=cv2.INTER_CUBIC)
 
+img1 = cv2.cvtColor(img1, cv2.COLOR_BGR2RGB)
+img2 = cv2.cvtColor(img1, cv2.COLOR_BGR2RGB)
+
 
 suma = cv2.add(img1, img2)
 resta = cv2.subtract(img1, img2)
