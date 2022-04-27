@@ -44,6 +44,9 @@ rows,cols = img4.shape
 M = cv2.getRotationMatrix2D(((cols-1)/2.0,(rows-1)/2.0),90,1)
 rotacion2 = cv2.warpAffine(img4,M,(cols,rows))
 
+height, width = img1.shape[:2]
+escalado = cv2.resize(img1,(2*width, 2*height), interpolation = cv2.INTER_CUBIC)
+
 
 
 
@@ -71,6 +74,7 @@ while True:
         cv2.imshow("Traslacion img2", traslacion2), cv2.moveWindow("Traslacion img2", 500, 570)
         cv2.imshow("Rotacion img1", rotacion1), cv2.moveWindow("Rotacion img1", 500, 600)
         cv2.imshow("Rotacion img2", rotacion2), cv2.moveWindow("Rotacion img2", 500, 630)
+        cv2.imshow("Escalado", escalado), cv2.moveWindow("Escalado", 500, 630)
         break
 
 
