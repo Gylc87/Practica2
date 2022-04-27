@@ -2,10 +2,6 @@ import cv2
 import keyboard
 import numpy as np
 import matplotlib.pyplot as plt
-import PIL
-import tkinter as tk
-from tkinter import *
-from tkinter import ttk
 
 image1 = cv2.imread("img1.jpg")
 image2 = cv2.imread("img2.jpg")
@@ -32,6 +28,7 @@ negacion = cv2.bitwise_not(img1, img2)
 rows,cols = img3.shape
 M = np.float32([[1,0,100],[0,1,50]])
 traslacion1 = cv2.warpAffine(img3,M,(cols,rows))
+
 rows,cols = img4.shape
 M = np.float32([[1,0,100],[0,1,50]])
 traslacion2 = cv2.warpAffine(img4,M,(cols,rows))
@@ -47,7 +44,13 @@ rotacion2 = cv2.warpAffine(img4,M,(cols,rows))
 height, width = img1.shape[:2]
 escalado = cv2.resize(img1,(2*width, 2*height), interpolation = cv2.INTER_CUBIC)
 
+c = 255 / np.log(1 + np.max(img1)) 
+logn = c * (np.log(img1 + 1))
+logn = np.array(logn, dtype = np.uint8)
 
+
+transpuesta1 = cv2.transpose(img1)
+transpuesta2 = cv2.transpose(img2)
 
 
 ##conca_verti = cv2.hconcat([img1, img2])
@@ -74,7 +77,11 @@ while True:
         cv2.imshow("Traslacion img2", traslacion2), cv2.moveWindow("Traslacion img2", 500, 570)
         cv2.imshow("Rotacion img1", rotacion1), cv2.moveWindow("Rotacion img1", 500, 600)
         cv2.imshow("Rotacion img2", rotacion2), cv2.moveWindow("Rotacion img2", 500, 630)
-        cv2.imshow("Escalado", escalado), cv2.moveWindow("Escalado", 500, 630)
+        cv2.imshow("Escalado", escalado), cv2.moveWindow("Escalado", 500, 660)
+        cv2.imshow("Logaritmo Natural img1", logn), cv2.moveWindow("Logaritmo Natural img1", 500, 690)
+        cv2.imshow("Logaritmo Natural img2", logn2), cv2.moveWindow("Logaritmo Natural img2", 500, 710)
+        cv2.imshow("Transpuesta img1", transpuesta1), cv2.moveWindow("Transpuesta img1", 500, 740)
+        cv2.imshow("Transpuesta img1", transpuesta2), cv2.moveWindow("Transpuesta img2", 500, 740)
         break
 
 
