@@ -51,12 +51,10 @@ c = 255 / np.log(1 + np.max(img1))
 logn = c * (np.log(img1 + 1))
 logn = np.array(logn, dtype = np.uint8)
 
-b = 255 / np.log(1 + np.max(img2)) 
-logn2 = b * (np.log(img2 + 1))
-logn2 = np.array(logn2, dtype = np.uint8)
+
 
 transpuesta1 = cv2.transpose(img1)
-transpuesta2 = cv2.transpose(img2)
+transpuesta2 = cv2.transpose(img4)
 
 
 
@@ -69,7 +67,7 @@ while True:
     if keyboard.is_pressed("Y") or keyboard.is_pressed("y"):
         #cv2.imshow("Operaciones", conca)
         cv2.imshow("image1",img1), cv2.moveWindow("image1", 0, 0)
-        cv2.imshow("image2",img2), cv2.moveWindow("image2", 975 , 0)
+        cv2.imshow("image2",img4), cv2.moveWindow("image2", 975 , 0)
         cv2.imshow("Suma",suma), cv2.moveWindow("Suma", 500, 250)
         cv2.imshow("Resta", resta), cv2.moveWindow("Resta", 500, 280)
         cv2.imshow("Division", division), cv2.moveWindow("Division", 500, 310)
@@ -86,7 +84,7 @@ while True:
         cv2.imshow("Rotacion img2", rotacion2), cv2.moveWindow("Rotacion img2", 500, 630)
         cv2.imshow("Escalado", escalado), cv2.moveWindow("Escalado", 500, 660)
         cv2.imshow("Logaritmo Natural 1", logn), cv2.moveWindow("Logaritmo Natural 1", 500, 690)
-        cv2.imshow("Logaritmo Natural 2", logn2), cv2.moveWindow("Logaritmo Natural 2", 500, 710)
+        ##cv2.imshow("Logaritmo Natural 2", logn2), cv2.moveWindow("Logaritmo Natural 2", 500, 710)
         cv2.imshow("Transpuesta 1", transpuesta1), cv2.moveWindow("Transpuesta 1", 500, 740)
         cv2.imshow("Transpuesta 2", transpuesta2), cv2.moveWindow("Transpuesta 2", 500, 740)
         break
